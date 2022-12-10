@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">.
+    <title>RegisterForm</title>
+    
+    <style>
+
+    /* Подключение internal */
+
+    body{
+    color:  #fff; /* цвет текста всего сайта */
+    background: linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.3)),url(bg/hands-in-a-digital-universe-background.jpg); /* заадний фон всего сайта */
+    -webkit-background-size: cover; /*размеры фонового изображения */
+    background-size: cover; /* задавать размер фонового изображения */ 
+    background-attachment: fixed; /* фиксация фона */ 
+    font-family: sans-serif; /* шрифт всего сайта */
+    display: flex; /* элемент, к которому применяется свойство "флекс-бокс". вложенные в него элементы подчиняются правилам раскладки флексов */
+    justify-content: center; /*все элементы вне зависимости от их ширины имеют горизонтальное позиционирование по центру родительского контейнера */
+    align-items: center; /* вертикальное выравнивание всех дочерних элементов по центру родительского */
+    height: 100vh; /*высота вьюпорта, очень удобно для элементов, которые должны растягиваться на всю страницу */
+    }
+
+   
+
+    form {
+    position: absolute; /*указываем элементу, где ему быть и он прилипнет*/
+    top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%); /*поворачивать, масштабировать, наклонять или сдвигать элемент.*/
+	background: rgba(0, 0, 0, 0.281);
+    padding: 7px; /*внутренние отступы от границ элемента до его содержимого*/
+	color: #fff;
+	font-size: 20px; /*размер шрифта*/
+	background: none;
+	outline: none; /*стиль для внешней границы*/
+	border: 1px solid #fff; /* стилизации границ (рамки) вокруг элемента*/
+	box-sizing: border-box; /*все элементы не будут добавлять внутренние отступы и границы к итоговой ширине*/
+    }
+
+
+    h1 {
+    margin: 20px 20px; /* внешний отступ на всех четырёх сторонах элемента*/
+	padding: 0;
+	text-align: center; /*выравнивание текста*/
+	color: #fff;
+	font-size: 30px;
+    text-transform: uppercase; /*весь текст заглавными буквами*/
+    font-weight: 600;
+    color: #fdfdfe;
+    text-shadow: 0px 0px 5px #b275da, 0px 0px 10px #b174d4, 0px 0px 10px #aa52b6,
+    0px 0px 20px #a95cf1;
+    text-transform: uppercase;
+    }
+   
+    button {
+    margin: 20px 20px; 
+    margin-left: 27%;
+    position: absolute;
+    width: 150px;
+    height: 45px; /*высота элемента*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 20px;
+    text-decoration: none;
+    font-family: sans-serif;
+    background: linear-gradient(90deg, rgb(243, 81, 243), rgb(93, 207, 241), rgb(213, 113, 243), rgb(247, 83, 247), rgb(137, 85, 219), rgb(61, 61, 236), rgb(127, 174, 189));
+    background-size: 400%;
+    border-radius: 30px;
+    transform: translate(0%, -50%);
+    cursor: pointer; /*курсор*/
+    }
+
+
+    button:hover {
+	background: #ecabe4;
+    animation: animate 8s linear infinite; /*воспроизведение анимации*/
+    }
+
+    @keyframes animate{
+    0% {
+    background-position: 0%;
+    }
+    100% {
+    background-position: 400%;
+    }
+    }
+
+/*Псевдоклассы, псевдоэлементы*/
+
+    button:before{
+    content: "";
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    z-index: -1;
+    background: linear-gradient(45deg, #e96cf5, #f05dcb, #5abdf7);
+    background-size: 400%;
+    border-radius: 40px;
+    opacity: 0;
+    transition: 0.5s;
+    }
+
+    button:hover:before{
+    filter: blur(20px);
+    opacity: 1;
+    animation: animate 8s linear infinite;
+    }
+
+/* ... */
+
+    a {
+	color: #fff;
+	text-decoration: none;
+	transition: .3s;
+    }
+
+    a:hover {
+	color: #ecabe4;
+    }
+
+    select {
+    position: relative;
+    display: block;
+    min-width: 220px;
+    width: 80%;
+    max-width: 400px;
+    margin-bottom: 0px;
+    }
+
+    select {
+    width: 100%;
+    max-width: 100%;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 14px 15px;
+    font-size: 14px;
+    line-height: 18px;
+    color: rgba(66, 67, 72, 0.8);
+    cursor: pointer;
+    }
+
+
+    .name {
+    text-align: center;
+    font-weight: bold
+    }
+
+ /*Селекторы*/
+    legend {
+    text-align: center;
+    font-weight: bold
+    }
+
+    .checkbox {
+    margin-top: 15%;
+    }
+
+    #user {
+    text-transform: uppercase;
+    }
+/* ... */ 
+
+/*Combinators*/
+
+    fieldset legend { /*Desendant selector*/
+    color: #3324c0;
+    }
+
+    .gender>label { /*Direct Child selector*/
+    color: #fa5bed;
+    }
+
+    .gendername+label { /*Adjacent Sibling selector*/
+    color: #376bdb;    
+    }
+
+    button~div { /*General selector*/
+    background-color: #3f1d361c;
+    
+    }
+
+    </style>
+</head>
+<body>
+    <form>
+        <h1>Register Form</h1>
+    <fieldset>
+        <p class="name">Please fill out the forms!</p>
+        
+        <legend id="user">User Info</legend>
+            <label for="firstname"><input type="text" id="firstname" placeholder="Enter your firstname" required> Firstname</label>
+            <p>
+            <label for="lastname"><input type="text" id="lastname" placeholder="Enter your lasttname" required> Lastname</label>
+            <p>
+            <label for="password"><input type="password" id="password" placeholder="Enter your password" required> Password</label>
+            <p>
+            <label for="email"><input type="email" id="email" placeholder="Enter your email" required> Email</label>
+            <p>
+            <label for="date">Enter your date of birth</label>
+                <input type="date" id="date of birth" name="date of birth" 
+                    value="2000-01-01"
+                    min="1950-01-01" max="2022-11-01">
+    </fieldset>
+    <fieldset>
+            <label for="phone">Enter your phone number:</label>
+
+            <input type="tel" id="phone" name="phone"
+            required>
+            <p>
+             <small>Format: 8 700 111 22 33</small>
+    </fieldset>
+    <fieldset class="gender">
+            <legend class="gendername">Gender</legend>
+                <label for="male"><input type="radio" id="male" name="gender">Male</label>
+                <label for="female"><input type="radio" id="female" name="gender">Female</label>
+    </fieldset>
+    <fieldset>
+            <legend>City</legend>
+                <select name="city" id="city">
+                    <option value="astana">Astana</option>
+                    <option value="almaty">Almaty</option>
+                    <option value="Aktau">Aktau</option>
+                    <option value="Shymkent">Shymkent</option>
+                    <option value="Taraz">Taraz</option>
+                </select>
+    </fieldset>
+    <fieldset class="entry">
+            
+            <button type="submit" formaction="https://s1tora.github.io/hw/authorization.html">Sign up</button>
+            </form>
+            <div>
+            <label><input class="checkbox" type="checkbox" checked="checked" name="remember"> Remember me</label>
+            <p>
+            <p>Already have an account? <a href="https://s1tora.github.io/hw/authorization.html">Sign in</a></p>
+            </div>
+    </fieldset>    
+        
+</body>
+</html>
